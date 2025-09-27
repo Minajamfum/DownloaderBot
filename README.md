@@ -1,49 +1,26 @@
-📥 Telegram Video Downloader Bot
+Telegram Video Downloader Bot
 
-
-
-
-یک ربات تلگرام برای دانلود ویدیو از اینستاگرام و پینترست.
-کاربران تنها با ارسال لینک ویدیو، می‌توانند آن را مستقیماً دریافت کنند.
-
-📑 Table of Contents
+یک ربات تلگرام برای دانلود ویدیو از اینستاگرام و پینترست. کاربران تنها با ارسال لینک ویدیو، می‌توانند آن را مستقیماً دریافت کنند.
 
 ویژگی‌ها
 
+پشتیبانی از لینک‌های اینستاگرام و پینترست
+
+محدودیت حجم ویدیو: 50MB
+
+دانلود و ارسال مستقیم ویدیو در چت تلگرام
+
+اجرا آسان روی VPS یا سرویس‌های cloud
+
 پیش‌نیازها
-
-نصب و اجرا
-
-Docker
-
-نکات مهم
-
-منابع
-
-⚡ ویژگی‌ها
-
-✅ پشتیبانی از لینک‌های اینستاگرام و پینترست
-
-✅ محدودیت حجم ویدیو: 50MB
-
-✅ دانلود و ارسال مستقیم ویدیو در چت تلگرام
-
-✅ اجرا آسان روی VPS / Render / Fly.io / Oracle Cloud
-
-📦 پیش‌نیازها
 
 Python 3.10+
 
 ffmpeg نصب شده و در PATH موجود باشد
 
-کتابخانه‌های Python موجود در requirements.txt:
+کتابخانه‌های Python: pyTelegramBotAPI, yt_dlp, requests, python-dotenv
 
-pyTelegramBotAPI
-yt_dlp
-requests
-python-dotenv
-
-⚙️ نصب و اجرا
+نصب و اجرا
 
 کلون کردن پروژه:
 
@@ -58,7 +35,7 @@ source venv/bin/activate  # در ویندوز: venv\Scripts\activate
 pip install -r requirements.txt
 
 
-ساخت فایل .env و قرار دادن Token ربات:
+ساخت فایل .env و قرار دادن Token تلگرام:
 
 TELEGRAM_TOKEN=توکن_ربات_تو
 
@@ -68,29 +45,18 @@ TELEGRAM_TOKEN=توکن_ربات_تو
 python3 bot.py
 
 
-برای اجرای ۲۴/۷، توصیه می‌شود از tmux یا systemd service استفاده شود.
+برای اجرای دائم روی سرور توصیه می‌شود از tmux یا systemd service استفاده شود.
 
-🐳 Docker (اختیاری)
-FROM python:3.11-slim
-
-WORKDIR /app
-COPY . /app
-
-RUN pip install --upgrade pip
-RUN pip install -r requirements.txt
-
-CMD ["python", "bot.py"]
-
-💡 نکات مهم
+نکات مهم
 
 مسیر دانلود ویدیو بهتر است /tmp/video.mp4 باشد تا روی سرورهای لینوکس مشکلی ایجاد نشود.
 
 استفاده از Environment Variable برای Token توصیه می‌شود.
 
-این ربات با Cloudflare Workers سازگار نیست، چون نیاز به اتصال دائمی به Telegram API دارد.
+ربات با Cloudflare Workers سازگار نیست، چون نیاز به اتصال دائمی به Telegram API دارد.
 
-🔗 منابع
+منابع
 
-pyTelegramBotAPI Documentation
+pyTelegramBotAPI Documentation: https://github.com/eternnoir/pyTelegramBotAPI
 
-yt-dlp Documentation
+yt-dlp Documentation: https://github.com/yt-dlp/yt-dlp
